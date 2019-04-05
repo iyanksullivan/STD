@@ -9,6 +9,6 @@
 #include "funcpros.h"
 
 int main(){
-    cout<<"ATHALLA GANS"<<endl;
+    cout<<"ATHALLA TAI"<<endl;
     return 0;
 }
