@@ -2,8 +2,8 @@
 //  funcpros.h
 //  Tubes
 //
-//  Created by Iyank on 4/3/19.
-//  Copyright © 2019 Iyank. All rights reserved.
+//  Created by Iyank(Cuma 5%) & Athalla(95%). on 4/3/19.
+//  Copyright © 2019 Iyank(Cuma 5%) & Athalla(95%).. All rights reserved.
 //
 
 #ifndef funcpros_h
