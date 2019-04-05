@@ -1,1 +1,0 @@
-KERJAIN THAL
