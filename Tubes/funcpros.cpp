@@ -46,7 +46,6 @@ void tagterbanyak(list L, string tagart){
     }
     cout<<"Tag Terbanyak adalah: "<<tagart<<endl;
     cout<<"Terdapat Tag dengan nama "<<tagart<<count<<endl;
-    
 }
 void cariartik(list L, string art){
     address P = first(L);

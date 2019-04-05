@@ -9,5 +9,6 @@
 #include "funcpros.h"
 
 int main(){
+    
     return 0;
 }
