@@ -33,9 +33,21 @@ void addartikel(list &L, address P){
         last(L)=P;
     }
 }
-//void tagterbanyak(list L, string tagart){
-//
-//}
+void tagterbanyak(list L, string tagart){
+    address P = first(L);
+    int count = 0;
+    while (next(P)!=NULL){
+        if (tag(P)==tagart){
+            count++;
+            P=next(P);
+        }else{
+            P=next(P);
+        }
+    }
+    cout<<"Tag Terbanyak adalah: "<<tagart<<endl;
+    cout<<"Terdapat Tag dengan nama "<<tagart<<count<<endl;
+    
+}
 void cariartik(list L, string art){
     address P = first(L);
     bool found = false;
