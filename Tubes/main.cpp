@@ -9,7 +9,5 @@
 #include "funcpros.h"
 
 int main(){
-    cout<<"ATHALLA TAI"<<endl;
-    cout<<65*10<<endl;
     return 0;
 }
