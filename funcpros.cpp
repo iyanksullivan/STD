@@ -2,7 +2,7 @@
 //  funcpros.cpp
 //  Tubes
 //
-//  Created by Iyank on 4/3/19.
+//  Created by Iyank on 4/3/19 (Kerjanya cuma 5%).
 //  Copyright © 2019 Iyank. All rights reserved.
 //
 
