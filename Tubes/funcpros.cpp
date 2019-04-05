@@ -2,8 +2,8 @@
 //  funcpros.cpp
 //  Tubes
 //
-//  Created by Iyank(Cuma 5%) & Athalla(95%). on 4/3/19.
-//  Copyright © 2019 Iyank(Cuma 5%) & Athalla(95%).. All rights reserved.
+//  Created by Iyank & Athalla. on 4/3/19.
+//  Copyright © 2019 Iyank & Athalla. All rights reserved.
 //
 
 #include "funcpros.h"
@@ -33,6 +33,9 @@ void addartikel(list &L, address P){
         last(L)=P;
     }
 }
+//void tagterbanyak(list L, string tagart){
+//
+//}
 void cariartik(list L, string art){
     address P = first(L);
     bool found = false;
@@ -51,9 +54,6 @@ void cariartik(list L, string art){
         cout<<"Artikel tidak ditemukan"<<endl;
     }
 }
-//void tagterbanyak(list L, string tagart){
-//
-//}
 void delartikel(list &L, string judl){
     address P = first(L);
     bool found = false;
