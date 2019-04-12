@@ -11,15 +11,32 @@
 bool isEmpty(list &L){
     return first(L)==NULL && last(L)==NULL;
 }
-void createlist(list &L){
+void clistP(list &L){
     first(L)=NULL;
     last(L)=NULL;
 }
-void createartikel(address &P, string jdl, string isi, string ta){
+void clistPT(LPT &LP){
+    firstPT(LP)=NULL;
+    lastPT(LP)=NULL;
+}
+void clistT(LT &T){
+    firstT(T)=NULL;
+    lastT(T)=NULL;
+}
+void createartikel(address &P){
     P = new data;
-    judul(P)=jdl;
+    string judul,isi;
+    cout<<"Menu Input artikel Happy writing :)"<<endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<"Masukan Judul Artikel: ";
+    cin>>judul;
+    cout<<endl;
+    cout<<endl;
+    cout<<"Masukan Isi Artikel: ";
+    cin>>isi;
+    judul(P)=judul;
     artik(P)=isi;
-    tag(P)=ta;
     next(P)=NULL;
     prev(P)=NULL;
 }
@@ -33,20 +50,20 @@ void addartikel(list &L, address P){
         last(L)=P;
     }
 }
-void tagterbanyak(list L, string tagart){
-    address P = first(L);
-    int count = 0;
-    while (next(P)!=NULL){
-        if (tag(P)==tagart){
-            count++;
-            P=next(P);
-        }else{
-            P=next(P);
-        }
-    }
-    cout<<"Tag Terbanyak adalah: "<<tagart<<endl;
-    cout<<"Terdapat Tag dengan nama "<<tagart<<count<<endl;
-}
+//void tagterbanyak(list L, string tagart){
+//    address P = first(L);
+//    int count = 0;
+//    while (next(P)!=NULL){
+//        if (tag(P)==tagart){
+//            count++;
+//            P=next(P);
+//        }else{
+//            P=next(P);
+//        }
+//    }
+//    cout<<"Tag Terbanyak adalah: "<<tagart<<endl;
+//    cout<<"Terdapat Tag dengan nama "<<tagart<<count<<endl;
+//}
 void cariartik(list L, string art){
     address P = first(L);
     bool found = false;
@@ -60,7 +77,7 @@ void cariartik(list L, string art){
     if (found==true){
         cout<<judul(P)<<endl;
         cout<<artik(P)<<endl;
-        cout<<tag(P)<<endl;
+        cout<<taga(P)<<endl;
     }else{
         cout<<"Artikel tidak ditemukan"<<endl;
     }
@@ -90,7 +107,7 @@ void lihatartikel(list L){
     while(next(P)!=NULL){
         cout<<judul(P)<<endl;
         cout<<artik(P)<<endl;
-        cout<<tag(P)<<endl;
+        cout<<taga(P)<<endl;
         P=next(P);
     }
 }
