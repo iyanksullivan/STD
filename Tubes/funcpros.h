@@ -11,41 +11,51 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
+//define parent list
 #define first(L) L.first
 #define last(L) L.last
 #define judul(P) P->judul
 #define artik(P) P->artik
 #define next(P) P->next
 #define prev(P) P->prev
-#define taga(P) P->taga
-#define nextTag(T) T->nextTag
-#define Ptag(T) T->Ptag;
-#define nextLT(TL) TL->nextLT
-#define count(LT) LT->count
-#define firstPT(PT) PT.firstPT
-#define lastPT(PT) PT.lastPT
-#define firstT(TA) TA.firstT
-#define lastT(TA) TA.lastT
+//define relation list
+#define firstPT(L) L.firstPT
+#define lastPT(L) L.lastPT
+#define nextTag(P) P->nextTag
+#define prevTag(P) P->prevTag
+#define source(P) P->source
+#define PointerTag(P) P->PointerTag
+//define child list
+#define firstT(L) L.firstT
+#define lastT(L) L.lastT
+#define tagartik(P) P->tagartik
+#define count(P) P->count
+#define nextLT(P) P->nextLT
+#define prevLT(P) P->prevLT
+#define dest(P) P->dest
 
 typedef struct data *address;
-typedef struct tag *adrPtag;
-typedef struct ltag *adrTag;
+typedef struct Ptag *adrPtag;
+typedef struct Ltag *adrTag;
 
 struct data{
     string judul;
     string artik;
     address next;
-    adrPtag taga;
     address prev;
 };
-struct tag{
+struct Ptag{
     adrPtag nextTag;
-    adrTag Ptag;
+    adrPtag prevTag;
+    adrTag PointerTag;
+    address source;
 };
-struct ltag{
+struct Ltag{
     string tagartik;
     int count;
     adrTag nextLT;
+    adrTag prevLT;
+    adrPtag dest;
 };
 struct list{
     address first;
@@ -59,16 +69,26 @@ struct LT{
     adrTag firstT;
     adrTag lastT;
 };
-bool isEmpty(list &L);
-void clistP(list &L);
-void clistPT(LPT &LP);
-void clistT(LT &T);
-void createartikel(address &P);
-//void createTag(adrPtag &PT);
-void addartikel(list &L, address P);
-//void addtag(LPT);
+//check function
+bool isEmptyP(list &L);
+bool isEmptyLP(LPT &L);
+bool isEmptyLT(LT &L);
+//create list function
+void CListParent(list &L);
+void CListPointer(LPT &LP);
+void CListTag(LT &T);
+//create artikel function with insert
+void createartikel(list &L);
+void createTag(LPT &Q, LT &W);
+void addingtag();
+//function search
 void cariartik(list L);
 void tagterbanyak(list L);
+//delete function
 void delartikel(list &L);
-void lihatartikel(list L);
+void deleterelation();
+//show all function
+void viewmosttag();
+void viewartikelwithsametag();
+void viewartikelandtag();
 #endif /* funcpros_h */

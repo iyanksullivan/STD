@@ -7,107 +7,96 @@
 //
 
 #include "funcpros.h"
-
-bool isEmpty(list &L){
+//check function
+bool isEmptyP(list &L){
     return first(L)==NULL && last(L)==NULL;
 }
-void clistP(list &L){
+bool isEmptyLP(LPT &L){
+    return firstPT(L)==NULL && lastPT(L)==NULL;
+}
+bool isEmptyLT(LT &L){
+    return firstT(L)==NULL && lastT(L)==NULL;
+}
+//create list function
+void CListParent(list &L){
     first(L)=NULL;
     last(L)=NULL;
 }
-void clistPT(LPT &LP){
+void CListPointer(LPT &LP){
     firstPT(LP)=NULL;
     lastPT(LP)=NULL;
 }
-void clistT(LT &T){
+void CListTag(LT &T){
     firstT(T)=NULL;
     lastT(T)=NULL;
 }
-void createartikel(address &P){
-    P = new data;
+//create artikel
+void createartikel(list &L){
+    address P = new data;
     string judul,isi;
-    cout<<"Menu Input artikel Happy writing :)"<<endl;
+    cout<<"Menu input artikel"<<endl;
     cout<<endl;
-    cout<<endl;
-    cout<<"Masukan Judul Artikel: ";
+    cout<<"Masukan Judul artikel: ";
     cin>>judul;
     cout<<endl;
-    cout<<endl;
-    cout<<"Masukan Isi Artikel: ";
+    cout<<"Masukan isi artikel: ";
     cin>>isi;
     judul(P)=judul;
     artik(P)=isi;
     next(P)=NULL;
     prev(P)=NULL;
-}
-void addartikel(list &L, address P){
-    if (isEmpty(L)){
+    if (isEmptyP(L)){
         first(L)=P;
         last(L)=P;
     }else{
-        prev(P)=last(L);
         next(last(L))=P;
+        prev(P)=last(L);
         last(L)=P;
     }
 }
-//void tagterbanyak(list L, string tagart){
-//    address P = first(L);
-//    int count = 0;
-//    while (next(P)!=NULL){
-//        if (tag(P)==tagart){
-//            count++;
-//            P=next(P);
-//        }else{
-//            P=next(P);
-//        }
-//    }
-//    cout<<"Tag Terbanyak adalah: "<<tagart<<endl;
-//    cout<<"Terdapat Tag dengan nama "<<tagart<<count<<endl;
-//}
-void cariartik(list L, string art){
-    address P = first(L);
-    bool found = false;
-    while ((next(P)!=NULL)||(found!=true)){
-        if (art==judul(P)){
-            found = true;
-        }else{
-            P=next(P);
-        }
-    }
-    if (found==true){
-        cout<<judul(P)<<endl;
-        cout<<artik(P)<<endl;
-        cout<<taga(P)<<endl;
+void createTag(LPT &Q, LT &W, list L){
+    adrPtag P = new Ptag;
+    nextTag(P)=NULL;
+    prevTag(P)=NULL;
+    source(P)=NULL;
+    PointerTag(P)=NULL;
+    adrTag T = new Ltag;
+    string tag;
+    cout<<"Menu Add tag"<<endl;
+    cout<<endl;
+    cout<<"Masukan tag : ";
+    cin>>tag;
+    tagartik(T)=tag;
+    count(T)=1;
+    if (isEmptyLT(W)){
+        firstT(W)=T;
+        lastT(W)=T;
     }else{
-        cout<<"Artikel tidak ditemukan"<<endl;
-    }
-}
-void delartikel(list &L, string judl){
-    address P = first(L);
-    bool found = false;
-    while ((next(P)!=NULL)||(found!=true)){
-        if (judl==judul(P)){
-            found = true;
-        }else{
-            P=next(P);
+        adrTag U = firstT(W);
+        bool found = false;
+        while(nextLT(U)!=NULL && found == false){
+            if (tagartik(U)==tag){
+                found = true;
+            }else{
+                U=nextLT(U);
+            }
         }
-    }
-    if (found==true){
-        next(prev(P))=next(P);
-        prev(next(P))=next(prev(P));
-        prev(P)=NULL;
-        next(P)=NULL;
-        delete P;
-    }else{
-        cout<<"artikel tidak ada"<<endl;
-    }
-}
-void lihatartikel(list L){
-    address P = first(L);
-    while(next(P)!=NULL){
-        cout<<judul(P)<<endl;
-        cout<<artik(P)<<endl;
-        cout<<taga(P)<<endl;
-        P=next(P);
+        if(found==true){
+            count(U)=count(U)+count(T);
+            if (isEmptyLP(Q)){
+                source(P)=last(L);
+                PointerTag(P)=U;
+                firstPT(Q)=P;
+                lastPT(Q)=P;
+            }else{
+                nextTag(lastPT(Q))=P;
+                prevTag(P)=lastPT(Q);
+                source(P)=last(L);
+                PointerTag(P)=U;
+                lastPT(Q)=P;
+            }
+        }else{
+            //TAMBAHIN KALO TAG KAGA ADA (BERARTI LIST TAG/CHILD NAMBAH)
+        }
     }
 }

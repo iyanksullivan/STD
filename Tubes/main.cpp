@@ -9,6 +9,9 @@
 #include "funcpros.h"
 
 int main(){
-    
+    list L;
+    LPT Q;
+    LT E;
+    createartikel(L);
     return 0;
 }
